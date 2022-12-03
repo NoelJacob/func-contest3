@@ -1,0 +1,18 @@
+{
+  "name": "func-contest3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ton-community/func-js": "^0.2.1",
+    "ton": "^12.1.5",
+    "ton-contract-executor": "^0.6.0"
+  }
+}
