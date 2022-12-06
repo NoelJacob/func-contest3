@@ -16,9 +16,8 @@
 
 ;; testable
 tuple decomposite(cell big_cell, slice destination_address) method_id {
-    (int cells, int bits, int refs) = big_cell.compute_data_size(4000);
-    tuple t = empty_tuple().tpush(cells).tpush(bits).tpush(refs);
-    return t;
+    (int cells, int bits, int depth) = big_cell.compute_data_size(4000);
+    return empty_tuple().tpush(cells).tpush(bits).tpush(depth);
 }
 
 ;; recv_internal
