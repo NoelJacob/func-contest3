@@ -32,15 +32,16 @@ describe('1', () => {
         //     big_cell = beginCell().storeUint(0, 1023).storeRef(big_cell).endCell();
         // }
 
+        const cell_size = 2;
         let recursive = (cells, bits, refs, refs_total) => {
             if (bits < 998976) {
                 if (refs_total < 254) {
                     if (refs < 4) {
                     cells += 1;
                     refs_total += 1;
-                    bits += 1023;
+                    bits += cell_size;
                     refs += 1;
-                    let res = beginCell().storeUint(0, 1023).storeRef(recursive(cells, bits, refs, refs_total));
+                    let res = beginCell().storeUint(0, cell_size).storeRef(recursive(cells, bits, refs, refs_total));
                     return res.endCell();
                     }
                 }
