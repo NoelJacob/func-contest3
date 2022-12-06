@@ -1,0 +1,6 @@
+#pragma version >=0.2.0;
+
+;; testable
+() recv_internal (cell message, slice in_msg_body) {
+    ;; Add code here
+}

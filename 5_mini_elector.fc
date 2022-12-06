@@ -1,0 +1,24 @@
+#pragma version >=0.2.0;
+
+() load_data() inline_ref {
+    return ();
+}
+
+() store_data() impure inline_ref {
+    set_data(begin_cell().end_cell());
+}
+
+;; testable
+() recv_internal (int msg_value, cell full_message, slice in_msg_body) {
+    (int op, int query_id) = (in_msg_body~load_uint(32),in_msg_body~load_uint(64));
+    if(op == 0x5ce28eea) {
+        ....
+    }
+    if(op == 0x207fa5f5) {
+        ....
+    }
+}
+
+;; testable
+(tuple, tuple) get_stake_table() method_id {
+}

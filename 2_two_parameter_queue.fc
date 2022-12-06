@@ -1,0 +1,15 @@
+#pragma version >=0.2.0;
+
+() load_data() inline_ref {
+    return ();
+}
+
+() store_data() impure inline_ref {
+    set_data(begin_cell().end_cell());
+}
+
+;; testable
+() recv_internal (slice in_msg_body) {
+    (int score, int value, cell msg) = (in_msg_body~load_uint(32), in_msg_body~load_coins(), in_msg_body~load_ref());
+    ;; Add code here
+}

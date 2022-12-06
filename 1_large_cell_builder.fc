@@ -1,0 +1,28 @@
+#pragma version >=0.2.0;
+#include "stdlib.fc";
+
+() load_data() inline_ref {
+    return ();
+}
+
+() store_data() impure inline_ref {
+    set_data(begin_cell().end_cell());
+}
+
+;; testable
+() recv_internal(slice body) {
+    ;; noop
+}
+
+;; testable
+tuple decomposite(cell big_cell, slice destination_address) method_id {
+    (int cells, int bits, int refs) = big_cell.compute_data_size(4000);
+    tuple t = empty_tuple().tpush(cells).tpush(bits).tpush(refs);
+    return t;
+}
+
+;; recv_internal
+cell composite(slice body) method_id {
+    int x = body~load_int(10);
+    return  begin_cell().store_int(x,10).end_cell();
+}
